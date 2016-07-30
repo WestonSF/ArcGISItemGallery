@@ -1,7 +1,10 @@
 define([], function () {
-  var config = {
-    "group": "908dd46e749d4565a17d2b646ace7b1a",
+    var config = {
+    "sharingurl": "https://wairarapa.maps.arcgis.com",
+    "proxyUrl": "",
+    "group": "5b5aa1073a9c478ab8245543ad060a22",
     "appid": "",
+
     "theme": "blueTheme",
     "siteTitle": "",
     "siteBannerImage": "",
@@ -18,48 +21,49 @@ define([], function () {
     "footerDescription": "",
     "footerLogo": "",
     "footerLogoUrl": "",
-    "addThisProfileId": "xa-4f3bf72958320e9e",
     "defaultLayout": "grid",
-    "searchString": "",
-    "sortField": "modified",
-    "sortOrder": "desc",
-    "searchType": "",
-    "mapViewer": "simple",
+    "searchString": "", // Default text to search on
+    "searchType": "", // Default type to search on
+    "sortField": "title", // "title","modified"
+    "sortOrder": "asc", // "asc","desc"
+    "mapViewer": "item_page", // "simple","arcgis","item_page"
     "paginationSize": 2,
-    "galleryItemsPerPage": 9,
+    "galleryItemsPerPage": 15,
+    "showThumbTitle": true,
+    "showGroupSort": true,
+    "showFilterTags": true,
+    "filterTags": "Test,Property", // "Tag1,Tag2"
+    "showPagination": true,
+    "openGalleryItemsNewWindow": true,
+    "showGroupSearch": false,
+    "showLayoutSwitch": false,
     "showProfileUrl": false,
-    "showSocialButtons": true,
-    "showFooter": true,
-    "showBasemapGallery": true,
-    "showArcGISBasemaps": true,
+    "showSocialButtons": false,
+    "showFooter": false,
+    "showBasemapGallery": false,
+    "showArcGISBasemaps": false,
+    "basemapsGroup": {},
     "showFilterType": false,
     "filterType": "", // "Maps", "Layers", "Applications", "Tools", "Datafiles"
-    "basemapsGroup": {},
-    "openLayersInViewer": true,
-    "showGroupSearch": true,
-    "showGroupSort": false,
-    "showMapSearch": true,
-    "showLayerToggle": true,
-    "showLayoutSwitch": true,
-    "showOverviewMap": true,
+    "openLayersInViewer": false,
+    "showMapSearch": false,
+    "showLayerToggle": false,
+    "showOverviewMap": false,
     "showMoreInfo": false,
-    "showPagination": true,
     "showArcGISOnlineButton": false,
-    "showLicenseInfo": true,
-    "showAttribution": true,
+    "showLicenseInfo": false,
+    "showAttribution": false,
     "showComments": false,
     "showRatings": false,
     "showViews": false,
-    "showMobileButtons": true,
-    "showThumbTitle": false,
-    "openGalleryItemsNewWindow": false,
+    "showMobileButtons": false,
+
+    "addThisProfileId": "xa-4f3bf72958320e9e",
     "bannerBackground": "images/ui/banner.png",
-    "proxyUrl": "",
-    "sharingurl": "",
     "iosAppUrl": "itms://itunes.apple.com/us/app/arcgis/id379687930?mt=8",
     "androidAppUrl": "https://market.android.com/details?id=com.esri.android.client",
     "pointGraphic": "images/ui/bluepoint-21x25.png",
-    "sourceCountry": "USA"
+    "sourceCountry": "NZ"
   };
   return config;
 });

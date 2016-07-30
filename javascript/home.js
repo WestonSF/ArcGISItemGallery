@@ -41,33 +41,17 @@ define([
       buildSortingMenu: function () {
         // sorting fields
         var sortFields = [{
-          "title": i18n.viewer.sortFields.modified,
-          "field": "modified",
-          "defaultOrder": "desc"
-            }, {
           "title": i18n.viewer.sortFields.title,
           "field": "title",
           "defaultOrder": "asc"
             }, {
-          "title": i18n.viewer.sortFields.type,
-          "field": "type",
-          "defaultOrder": "asc"
-            }, {
-          "title": i18n.viewer.sortFields.numRatings,
-          "field": "numRatings",
-          "defaultOrder": "desc"
-            }, {
-          "title": i18n.viewer.sortFields.avgRating,
-          "field": "avgRating",
-          "defaultOrder": "desc"
-            }, {
-          "title": i18n.viewer.sortFields.numComments,
-          "field": "numComments",
-          "defaultOrder": "desc"
-            }, {
           "title": i18n.viewer.sortFields.numViews,
           "field": "numViews",
           "defaultOrder": "desc"
+            }, {
+            "title": i18n.viewer.sortFields.modified,
+            "field": "modified",
+            "defaultOrder": "desc"
             }];
         // html variable
         var html = '';
@@ -147,6 +131,7 @@ define([
           paginationSize: this._options.paginationSize,
           paginationShowFirstLast: true,
           paginationShowPrevNext: true,
+          tags: this._options.tags,
           keywords: this._options.searchString,
           perPage: parseInt(this._options.galleryItemsPerPage, 10),
           perRow: parseInt(this._options.galleryPerRow, 10),
@@ -171,7 +156,7 @@ define([
       /*------------------------------------*/
       insertHomeContent: function () {
         var node, html;
-        // Set home heading
+        // Set filter type
         if (this._options.showFilterType) {
           node = dom.byId('filterByType');
           if (!this._options.filterType) {
@@ -187,6 +172,25 @@ define([
           html += '<li ' + this.getSelectedClass("Datafiles") + ' data-type="Datafiles">' + i18n.viewer.filterItems.files + '</li>';
           html += '</ul>';
           this.setNodeHTML(node, html);
+        }
+        // Set filter tags
+        if (this._options.showFilterTags) {
+            node = dom.byId('filterByTag');
+            if (!this._options.filterType) {
+                this._options.filterType = "";
+            }
+
+            html = '<strong>' + i18n.viewer.filterItems.show + '</strong>';
+            html += '<ul>';
+            html += '<li ' + this.getSelectedClass("") + ' data-type="">' + i18n.viewer.filterItems.all + '</li>';
+
+            var tags = this._options.filterTags.split(",");
+            var tagsLength = tags.length;
+            for (var i = 0; i < tagsLength; i++) {
+                html += '<li ' + this.getSelectedClass(tags[i]) + ' data-type="' + tags[i] + '">' + tags[i] + '</li>';
+            }
+            html += '</ul>';
+            this.setNodeHTML(node, html);
         }
         // Set home heading
         if (this._options.homeHeading) {
@@ -642,6 +646,7 @@ define([
               domAttr.set(dom.byId('searchGroup'), 'value', '');
               var textVal = '';
               this._options.searchString = textVal;
+              this._options.tags = "";
               this._options.filterType = "";
               this._options.customFilter = "";
 
@@ -662,7 +667,7 @@ define([
         }
       },
       /*------------------------------------*/
-      // Enalbe layout and search options
+      // Enable layout and search options
       /*------------------------------------*/
       configLayoutSearch: function () {
         // if show search or show layout switch
@@ -725,6 +730,7 @@ define([
         }
       },
 
+      
       getCustomFilter: function (filterType) {
         var filter;
         switch (filterType) {
@@ -754,7 +760,7 @@ define([
       // Event Delegations
       /*------------------------------------*/
       setDelegations: function () {
-        // search button
+        // Filter by type button
         on(dom.byId("filterByType"), "li:click, li:keyup", lang.hitch(this, function (e) {
           if (e.type === 'click' || (e.keyCode === keys.ENTER)) {
             var hasClass = domClass.contains(e.target, 'selected');
@@ -773,6 +779,23 @@ define([
               this.queryMaps();
             }
           }
+        }));
+        // Filter by tag button
+        on(dom.byId("filterByTag"), "li:click, li:keyup", lang.hitch(this, function (e) {
+            if (e.type === 'click' || (e.keyCode === keys.ENTER)) {
+                var hasClass = domClass.contains(e.target, 'selected');
+                if (!hasClass) {
+                    var list = query('#filterByTag li');
+                    for (var i = 0; i < list.length; i++) {
+                        domClass.remove(list[i], 'selected');
+                    }
+                    domClass.add(e.target, 'selected');
+                    var value = domAttr.get(e.target, 'data-type');
+                    this._options.tags = value;
+                    this.addSpinner("groupSpinner");
+                    this.queryMaps();
+                }
+            }
         }));
         // search button
         on(dom.byId("searchGroupButton"), "click, keyup", lang.hitch(this, function (e) {

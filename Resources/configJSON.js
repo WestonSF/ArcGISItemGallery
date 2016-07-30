@@ -209,36 +209,16 @@
           "label":"Group sort field:",
           "options":[  
             {  
-              "label":"Modified Date",
-              "value":"modified"
-            },
-            {  
               "label":"Title",
               "value":"title"
             },
             {  
-              "label":"Type",
-              "value":"type"
-            },
-            {  
-              "label":"Owner",
-              "value":"owner"
-            },
-            {  
-              "label":"Average rating",
-              "value":"avgRating"
-            },
-            {  
-              "label":"Number of ratings",
-              "value":"numRatings"
-            },
-            {  
-              "label":"Number of comments",
-              "value":"numComments"
-            },
-            {  
               "label":"Number of views",
               "value":"numViews"
+            },
+            {  
+              "label":"Last Modified Date",
+              "value":"modified"
             }
           ]
         },
@@ -364,6 +344,13 @@
           "tooltip":"Default search string for group query.",
           "placeHolder":"",
           "label":"Search string:"
+        },
+        {  
+            "type":"string",
+            "fieldName":"filterTags",
+            "tooltip":"Tags to sort items by (seperated by comma).",
+            "placeHolder":"",
+            "label":"Filter tags:"
         }
       ]
     },
@@ -476,6 +463,12 @@
           "tooltip":"Shows ratings for items and allows items to be rated"
         },
         {  
+            "type":"boolean",
+            "fieldName":"showFilterTags",
+            "label":"Show a list allowing users to filter items by tag.",
+            "tooltip":"Shows a list allowing users to filter items by tag."
+        },
+        {  
           "type":"boolean",
           "fieldName":"showFilterType",
           "label":"Show a list allowing users to filter items by type.",
@@ -506,18 +499,18 @@
     "homeSnippet":"",
     "addThisProfileId":"xa-4f3bf72958320e9e",
     "defaultLayout":"grid",
-    "sortField":"modified",
-    "sortOrder":"desc",
+    "sortField":"title",
+    "sortOrder":"asc",
     "filterType":"",
     "mapViewer":"simple",
     "footerHeading":"",
     "footerDescription":"",
     "footerLogo":"",
     "footerLogoUrl":"",
-    "openLayersInViewer":true,
-    "showProfileUrl":true,
-    "showSocialButtons":true,
-    "showFooter":true,
+    "openLayersInViewer":false,
+    "showProfileUrl":false,
+    "showSocialButtons":false,
+    "showFooter":false,
     "showMoreInfo":false,
     "showComments":false,
     "showRatings":false,
@@ -525,12 +518,13 @@
     "showArcGISOnlineButton":false,
     "showMobileButtons":false,
     "openGalleryItemsNewWindow":false,
-    "showAttribution":true,
-    "showLicenseInfo":true,
+    "showAttribution":false,
+    "showLicenseInfo":false,
     "showGroupSort":false,
+    "showFilterTags": false,
     "showFilterType":false,
     "showThumbTitle":false,
-    "galleryItemsPerPage":"9",
-    "sourceCountry":"USA"
+    "galleryItemsPerPage":"15",
+    "sourceCountry":"NZ"
   }
 }

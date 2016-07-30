@@ -106,6 +106,12 @@
   background-color: #d15929;
   color: #fff;
 }
+
+.redTheme #filterByTag li.selected,
+.redTheme #filterByTag li.selected:hover {
+  background-color: #d15929;
+  color: #fff;
+}
 /*-------------------------------------------------- */
 /* blueTheme THEME */
 /*-------------------------------------------------- */
@@ -211,6 +217,12 @@
 
 .blueTheme #filterByType li.selected,
 .blueTheme #filterByType li.selected:hover {
+  background-color: #2c65a7;
+  color: #fff;
+}
+
+.blueTheme #filterByTag li.selected,
+.blueTheme #filterByTag li.selected:hover {
   background-color: #2c65a7;
   color: #fff;
 }
@@ -322,6 +334,12 @@
   background-color: #2a7433;
   color: #fff;
 }
+
+.greenTheme #filterByTag li.selected,
+.greenTheme #filterByTag li.selected:hover {
+  background-color: #2a7433;
+  color: #fff;
+}
 /*-------------------------------------------------- */
 /* CUSTOM THEME */
 /*-------------------------------------------------- */
@@ -369,3 +387,6 @@
 
 .custom #filterByType li.selected,
 .custom #filterByType li.selected:hover {}
+
+.custom #filterByTag li.selected,
+.custom #filterByTag li.selected:hover {}

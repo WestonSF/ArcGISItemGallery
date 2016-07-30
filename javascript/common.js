@@ -742,6 +742,8 @@ define([
           perRow: '',
           // offset
           searchStart: 0,
+          // search tags
+          keywords: '',
           // search keywords
           keywords: '',
           // style of layout for the results
@@ -755,6 +757,9 @@ define([
         q += 'group:"' + settings.id_group + '"';
         if (settings.customFilter) {
           q += ' ' + settings.customFilter;
+        }
+        if (settings.tags) {
+            q += ' AND tags:' + settings.tags;
         }
         if (settings.keywords) {
           q += ' AND (';
