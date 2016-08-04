@@ -439,6 +439,12 @@
           "tooltip":"Display More information links to the ArcGIS Online item page"
         },
         {  
+            "type":"boolean",
+            "fieldName":"showFilterTags",
+            "label":"Display a tag filter on the home page",
+            "tooltip":"Display a tag filter on the home page"
+        },
+        {  
           "type":"boolean",
           "fieldName":"showGroupSort",
           "label":"Display a group sort bar on the home page",
@@ -502,11 +508,15 @@
     "sortField":"title",
     "sortOrder":"asc",
     "filterType":"",
-    "mapViewer":"simple",
+    "mapViewer":"item_page",
     "footerHeading":"",
     "footerDescription":"",
     "footerLogo":"",
     "footerLogoUrl":"",
+    "showThumbTitle":true,
+    "openGalleryItemsNewWindow":true,
+    "showGroupSort":false,
+    "showFilterTags":false,
     "openLayersInViewer":false,
     "showProfileUrl":false,
     "showSocialButtons":false,
@@ -517,13 +527,9 @@
     "showViews":false,
     "showArcGISOnlineButton":false,
     "showMobileButtons":false,
-    "openGalleryItemsNewWindow":false,
     "showAttribution":false,
     "showLicenseInfo":false,
-    "showGroupSort":false,
-    "showFilterTags": false,
     "showFilterType":false,
-    "showThumbTitle":false,
     "galleryItemsPerPage":"15",
     "sourceCountry":"NZ"
   }

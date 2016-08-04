@@ -1,8 +1,8 @@
 define([], function () {
     var config = {
-    "sharingurl": "https://wairarapa.maps.arcgis.com",
+    "sharingurl": "",
     "proxyUrl": "",
-    "group": "5b5aa1073a9c478ab8245543ad060a22",
+    "group": "908dd46e749d4565a17d2b646ace7b1a",
     "appid": "",
 
     "theme": "blueTheme",
@@ -30,11 +30,11 @@ define([], function () {
     "paginationSize": 2,
     "galleryItemsPerPage": 15,
     "showThumbTitle": true,
-    "showGroupSort": true,
-    "showFilterTags": true,
-    "filterTags": "Test,Property", // "Tag1,Tag2"
+    "filterTags": "", // "Tag1,Tag2"
     "showPagination": true,
     "openGalleryItemsNewWindow": true,
+    "showGroupSort": false,
+    "showFilterTags": false,
     "showGroupSearch": false,
     "showLayoutSwitch": false,
     "showProfileUrl": false,
@@ -59,7 +59,7 @@ define([], function () {
     "showMobileButtons": false,
 
     "addThisProfileId": "xa-4f3bf72958320e9e",
-    "bannerBackground": "images/ui/banner.png",
+    "bannerBackground": "",
     "iosAppUrl": "itms://itunes.apple.com/us/app/arcgis/id379687930?mt=8",
     "androidAppUrl": "https://market.android.com/details?id=com.esri.android.client",
     "pointGraphic": "images/ui/bluepoint-21x25.png",
