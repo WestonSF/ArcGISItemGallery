@@ -26,10 +26,10 @@ define({
                 "message": "No operational layers"
             },
             "groupPage": {
-                "showAllMaps": "Show all maps",
+                "showAllMaps": "Show all items",
                 "searchTitle": "Search this group",
                 "searchTitleShort": "Search",
-                "searchPlaceholder": "Search maps",
+                "searchPlaceholder": "Search items",
                 "itemTitle": "View map",
                 "gridSwitch": "Switch to Grid View",
                 "listSwitch": "Switch to List View",

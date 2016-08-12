@@ -440,9 +440,9 @@
         },
         {  
             "type":"boolean",
-            "fieldName":"showFilterTags",
-            "label":"Display a tag filter on the home page",
-            "tooltip":"Display a tag filter on the home page"
+            "fieldName":"showGroupSearch",
+            "label":"Display a group search on the home page",
+            "tooltip":"Display a group search on the home page"
         },
         {  
           "type":"boolean",
@@ -515,7 +515,8 @@
     "footerLogoUrl":"",
     "showThumbTitle":true,
     "openGalleryItemsNewWindow":true,
-    "showGroupSort":false,
+    "showGroupSearch":true,
+    "showGroupSort":true,
     "showFilterTags":false,
     "openLayersInViewer":false,
     "showProfileUrl":false,

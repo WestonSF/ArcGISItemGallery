@@ -1,4 +1,4 @@
-# map-gallery-template-js
+﻿# ArcGIS Item Gallery
 
 This PublicGallery template is designed for anyone who wants to showcase their ArcGIS Online maps, layers, and mobile apps in a dynamic gallery. [more info](http://www.arcgis.com/home/item.html?id=34505d89a3b34be09b65b98938974390).
 

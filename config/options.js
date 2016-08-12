@@ -33,9 +33,9 @@ define([], function () {
     "filterTags": "", // "Tag1,Tag2"
     "showPagination": true,
     "openGalleryItemsNewWindow": true,
-    "showGroupSort": false,
+    "showGroupSearch": true,
+    "showGroupSort": true,
     "showFilterTags": false,
-    "showGroupSearch": false,
     "showLayoutSwitch": false,
     "showProfileUrl": false,
     "showSocialButtons": false,

@@ -143,7 +143,7 @@ define([
         this.queryArcGISGroupItems(settings).then(lang.hitch(this, function (data) {
           // Build featured items
           this.buildMapPlaylist(settings, data);
-        }));
+        }));   
       },
       getSelectedClass: function (item) {
         if (this._options.filterType === item) {
@@ -175,22 +175,71 @@ define([
         }
         // Set filter tags
         if (this._options.showFilterTags) {
-            node = dom.byId('filterByTag');
-            if (!this._options.filterType) {
-                this._options.filterType = "";
-            }
+            topFunction = this;
 
-            html = '<strong>' + i18n.viewer.filterItems.show + '</strong>';
-            html += '<ul>';
-            html += '<li ' + this.getSelectedClass("") + ' data-type="">' + i18n.viewer.filterItems.all + '</li>';
+            // Setup settings for query to get number of items
+            var settings = {
+                id_group: this._options.group,
+                searchType: this._options.searchType,
+                sortField: this._options.sortField,
+                sortOrder: this._options.sortOrder,
+                pagination: this._options.showPagination,
+                paginationSize: this._options.paginationSize,
+                paginationShowFirstLast: true,
+                paginationShowPrevNext: true,
+                tags: this._options.tags,
+                keywords: this._options.searchString,
+                perPage: parseInt(this._options.galleryItemsPerPage, 10),
+                perRow: parseInt(this._options.galleryPerRow, 10),
+                layout: this._options.defaultLayout,
+                customFilter: this._options.customFilter
+            };
+            // Query items to get number of items
+            this.queryArcGISGroupItems(settings).then(lang.hitch(this, function (data) {
+                node = dom.byId('filterByTag');
+                if (!this._options.filterType) {
+                    this._options.filterType = "";
+                }
 
-            var tags = this._options.filterTags.split(",");
-            var tagsLength = tags.length;
-            for (var i = 0; i < tagsLength; i++) {
-                html += '<li ' + this.getSelectedClass(tags[i]) + ' data-type="' + tags[i] + '">' + tags[i] + '</li>';
-            }
-            html += '</ul>';
-            this.setNodeHTML(node, html);
+                // Add all tag
+                html = '<strong>' + i18n.viewer.filterItems.show + '</strong>';
+                html += '<ul>';
+                html += '<li ' + this.getSelectedClass("") + ' data-type="">' + i18n.viewer.filterItems.all + ' (' + data.total + ')' + '</li>';
+
+                var tags = this._options.filterTags.split(",");
+                var tagsLength = tags.length;
+                queryCount = 0;
+                for (var tagCount = 0; tagCount < tagsLength; tagCount++) {
+                    // Setup settings for query to get number of items
+                    var tagSettings = {
+                        id_group: this._options.group,
+                        searchType: this._options.searchType,
+                        sortField: this._options.sortField,
+                        sortOrder: this._options.sortOrder,
+                        pagination: this._options.showPagination,
+                        paginationSize: this._options.paginationSize,
+                        paginationShowFirstLast: true,
+                        paginationShowPrevNext: true,
+                        tags: tags[tagCount],
+                        keywords: this._options.searchString,
+                        perPage: parseInt(this._options.galleryItemsPerPage, 10),
+                        perRow: parseInt(this._options.galleryPerRow, 10),
+                        layout: this._options.defaultLayout,
+                        customFilter: this._options.customFilter
+                    };
+                    // Query items by tag to get item count
+                    this.queryArcGISGroupItems(tagSettings).then(lang.hitch(this, function (data) {
+                        var querySplit = data.queryParams.q.split("AND");
+                        var tagSplit = querySplit[1].trim().split(":");
+                        html += '<li ' + this.getSelectedClass(tagSplit[1]) + ' data-type="' + tagSplit[1] + '">' + tagSplit[1] + ' (' + data.total + ')' + '</li>';
+                        if (queryCount == (tagsLength-1)) {
+                            html += '</ul>';
+                            this.setNodeHTML(node, html);
+                        }
+                        queryCount++;
+                    }));
+                }
+            }));
         }
         // Set home heading
         if (this._options.homeHeading) {
