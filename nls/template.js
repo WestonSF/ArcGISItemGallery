@@ -33,7 +33,7 @@ define({
                 "itemTitle": "View map",
                 "gridSwitch": "Switch to Grid View",
                 "listSwitch": "Switch to List View",
-                "loadingText": "Loading Maps&hellip;"
+                "loadingText": "Loading items&hellip;"
             },
             "sortFields": {
                 "sortBy": "Sort by",

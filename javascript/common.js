@@ -204,6 +204,8 @@ define([
         
         document.documentElement.lang = kernel.locale;
         
+        // Set default of blank tags
+        this._options.tags = "";
         // set user agent
         this.setUserAgent();
         // set up params

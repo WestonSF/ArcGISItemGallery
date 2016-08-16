@@ -131,7 +131,7 @@ define([
           paginationSize: this._options.paginationSize,
           paginationShowFirstLast: true,
           paginationShowPrevNext: true,
-          tags: this._options.tags,
+          tags: '"' + this._options.tags + '"',
           keywords: this._options.searchString,
           perPage: parseInt(this._options.galleryItemsPerPage, 10),
           perRow: parseInt(this._options.galleryPerRow, 10),
@@ -209,6 +209,7 @@ define([
                 var tags = this._options.filterTags.split(",");
                 var tagsLength = tags.length;
                 queryCount = 0;
+                var tagItems = [];
                 for (var tagCount = 0; tagCount < tagsLength; tagCount++) {
                     // Setup settings for query to get number of items
                     var tagSettings = {
@@ -220,7 +221,7 @@ define([
                         paginationSize: this._options.paginationSize,
                         paginationShowFirstLast: true,
                         paginationShowPrevNext: true,
-                        tags: tags[tagCount],
+                        tags: '"' + tags[tagCount] + '"',
                         keywords: this._options.searchString,
                         perPage: parseInt(this._options.galleryItemsPerPage, 10),
                         perRow: parseInt(this._options.galleryPerRow, 10),
@@ -229,10 +230,20 @@ define([
                     };
                     // Query items by tag to get item count
                     this.queryArcGISGroupItems(tagSettings).then(lang.hitch(this, function (data) {
+                        // Get query made and split by AND
                         var querySplit = data.queryParams.q.split("AND");
                         var tagSplit = querySplit[1].trim().split(":");
-                        html += '<li ' + this.getSelectedClass(tagSplit[1]) + ' data-type="' + tagSplit[1] + '">' + tagSplit[1] + ' (' + data.total + ')' + '</li>';
-                        if (queryCount == (tagsLength-1)) {
+                        // Add tags to array and sort - Removing quotations
+                        tagItems.push((tagSplit[1]).replace(/"/g, "") + ":" + data.total);
+                        tagItems.sort();
+                        // Final tag
+                        if (queryCount == (tagsLength - 1)) {
+                            // For each tag item
+                            array.forEach(tagItems, lang.hitch(this, function (tagItem) {
+                                var tagItemSplit = tagItem.split(":");
+                                // Set the html tags
+                                html += '<li ' + this.getSelectedClass(tagItemSplit[0]) + ' data-type="' + tagItemSplit[0] + '">' + tagItemSplit[0] + ' (' + tagItemSplit[1] + ')' + '</li>';
+                            }));
                             html += '</ul>';
                             this.setNodeHTML(node, html);
                         }

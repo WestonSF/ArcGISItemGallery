@@ -4,7 +4,6 @@ This PublicGallery template is designed for anyone who wants to showcase their A
 
 [View it live](http://www.arcgis.com/apps/PublicGallery/index.html)
 
-![App](https://raw.github.com/Esri/map-gallery-template-js/master/Resources/item.png)
 
 ## Features
 The Public Maps Gallery (PMG) template is designed for anyone who wants to showcase their ArcGIS Online maps, layers, and mobile apps in a dynamic web gallery. The template allows you to control the content that fills the gallery using tools available in your ArcGIS Online account. This means that once you deploy a gallery, keeping gallery content up-to-date is as simple as sharing or un-sharing items in your ArcGIS Online group.
