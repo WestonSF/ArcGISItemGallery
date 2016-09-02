@@ -30,13 +30,13 @@ define([], function () {
     "paginationSize": 2,
     "galleryItemsPerPage": 15,
     "showThumbTitle": true,
-    "filterTags": "", // "Tag1,Tag2"
+    "filterTags": "Fish - Annual Distribution,Fish - Autumn Distribution,Fish - Spawning Distribution,Fish - Annual Juvenile Distribution,Fish - Summer Juvenile Distribution,Fish - Autumn Juvenile Distribution,Fish - Winter Juvenile Distribution,Fish - Spring Juvenile Distribution,Fish - Spring Distribution,Fish - Summer Distribution,Fish - Winter Distribution,Birds - Annual Distribution,Birds - Autumn Distribution,Birds - Breeding Colonies,Birds - Spring Distribution,Birds - Summer Distribution,Birds - Winter Distribution,Mammals - Annual Distribution,Mammals - Breeding Colonies,Invertebrates - Annual Distribution,Plants - Annual Distribution,Management,Other,Environment", // "Tag1,Tag2"
     "showPagination": true,
     "openGalleryItemsNewWindow": true,
     "showGroupSearch": true,
     "showGroupSort": true,
     "showFilterTags": false,
-    "showLayoutSwitch": false,
+    "showLayoutSwitch": true,
     "showProfileUrl": false,
     "showSocialButtons": false,
     "showFooter": false,

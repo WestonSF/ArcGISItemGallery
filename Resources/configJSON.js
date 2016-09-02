@@ -452,6 +452,12 @@
         },
         {  
           "type":"boolean",
+          "fieldName":"showLayoutSwitch",
+          "label":"Display a button allowing the user to switch between grid and list view",
+          "tooltip":"Display a button allowing the user to switch between grid and list view"
+        },
+        {  
+          "type":"boolean",
           "fieldName":"showViews",
           "label":"Display a view count for maps",
           "tooltip":"Display a view count for maps"
@@ -518,6 +524,7 @@
     "showGroupSearch":true,
     "showGroupSort":true,
     "showFilterTags":false,
+    "showLayoutSwitch": true,
     "openLayersInViewer":false,
     "showProfileUrl":false,
     "showSocialButtons":false,
